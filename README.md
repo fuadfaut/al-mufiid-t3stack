@@ -1,29 +1,100 @@
-# Create T3 App
+# e-Rapor TPQ Al-Mufid
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Aplikasi e-Rapor digital untuk Taman Pendidikan Al-Qur'an (TPQ) berbasis web yang dibangun menggunakan T3 Stack.
 
-## What's next? How do I make an app with this?
+## Fitur Utama
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- 🔐 Autentikasi multi-role (Admin, Ustadz/ah, Santri)
+- 📊 Dashboard khusus untuk setiap role
+- 📝 Penilaian komprehensif meliputi:
+  - Fashahah (Makharijul Huruf, Sifatul Huruf, dll)
+  - Tajwid (Hukum Nun Mati, Mad, dll)
+  - Tartil (Tempo, Kelancaran)
+  - Suara & Nada
+  - Adab & Sikap
+- 📄 Generasi laporan PDF otomatis
+- 📱 Responsif untuk desktop dan mobile
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Tech Stack
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- **Framework:** [Next.js 14](https://nextjs.org)
+- **Autentikasi:** [NextAuth.js](https://next-auth.js.org)
+- **Database:** [Prisma](https://prisma.io)
+- **ORM:** [Drizzle](https://orm.drizzle.team)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com)
+- **API:** [tRPC](https://trpc.io)
+- **UI Components:** [shadcn/ui](https://ui.shadcn.com)
 
-## Learn More
+## Prasyarat
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+- Node.js 18+ 
+- PostgreSQL
+- pnpm (direkomendasikan)
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## Instalasi
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+1. Clone repositori:
+```bash
+git clone https://github.com/username/al-mufid.git
+cd al-mufid
+```
 
-## How do I deploy this?
+2. Install dependensi:
+```bash
+pnpm install
+```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+3. Salin file environment:
+```bash
+cp .env.example .env
+```
+
+4. Sesuaikan konfigurasi database di file `.env`
+
+5. Setup database:
+```bash
+pnpm db:generate  # Generate Prisma client
+pnpm db:push      # Push schema ke database
+pnpm db:seed      # Seed data awal
+```
+
+6. Jalankan development server:
+```bash
+pnpm dev
+```
+
+## Struktur Proyek
+
+```
+src/
+├── app/                 # App router & API routes
+├── components/          # React components
+├── lib/                 # Utility functions
+├── server/             # Server-side code
+│   ├── api/            # API handlers
+│   ├── auth/           # Authentication
+│   └── db/             # Database config
+├── styles/             # Global styles
+└── types/              # TypeScript types
+```
+
+## Scripts
+
+- `pnpm dev` - Jalankan development server
+- `pnpm build` - Build untuk production
+- `pnpm start` - Jalankan production server
+- `pnpm lint` - Jalankan linter
+- `pnpm format:write` - Format code dengan Prettier
+- `pnpm db:studio` - Buka Prisma Studio
+
+## Deployment
+
+Aplikasi dapat di-deploy menggunakan:
+- [Vercel](https://create.t3.gg/en/deployment/vercel)
+- [Netlify](https://create.t3.gg/en/deployment/netlify)
+- [Docker](https://create.t3.gg/en/deployment/docker)
+
+## Lisensi
+
+[MIT](LICENSE)
+
